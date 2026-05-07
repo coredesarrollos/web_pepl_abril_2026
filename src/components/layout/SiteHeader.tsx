@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { Logo } from '@/components/brand/Logo';
 import { ThemeSwitcher } from '@/components/theme/ThemeSwitcher';
 import { LocaleSwitcher } from '@/components/layout/LocaleSwitcher';
+import { MobileNav } from '@/components/layout/MobileNav';
 
 export function SiteHeader() {
   const t = useTranslations('nav');
@@ -14,58 +15,49 @@ export function SiteHeader() {
       >
         {t('skipToContent')}
       </a>
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-3">
+      <div className="relative mx-auto flex w-full max-w-7xl items-center justify-between gap-3 px-5 py-2.5">
         {/* Logo */}
         <Link href="/" aria-label="PEpL · Inicio" className="focus-ring flex-shrink-0 rounded-md">
-          <Logo className="h-9 w-auto" />
+          <Logo className="h-8 w-auto" />
         </Link>
 
-        {/* Primary nav */}
-        <nav aria-label="primary" className="hidden items-center gap-6 text-sm font-medium text-[var(--color-ink-soft)] md:flex">
-          <Link href="/#inicio" className="focus-ring rounded transition-colors hover:text-[var(--accent)]">
+        {/* Desktop primary nav */}
+        <nav aria-label="primary" className="hidden items-center gap-1 text-[13px] font-medium text-[var(--color-ink-soft)] lg:flex">
+          <Link href="/#inicio" className="focus-ring rounded-md px-2.5 py-1.5 transition-colors hover:bg-[var(--color-paper-soft)] hover:text-[var(--color-ink)]">
             {t('home')}
           </Link>
-          <Link href="/#how" className="focus-ring rounded transition-colors hover:text-[var(--accent)]">
+          <Link href="/#how" className="focus-ring rounded-md px-2.5 py-1.5 transition-colors hover:bg-[var(--color-paper-soft)] hover:text-[var(--color-ink)]">
             {t('how')}
           </Link>
-          <Link href="/#audiences" className="focus-ring rounded transition-colors hover:text-[var(--accent)]">
+          <Link href="/#audiences" className="focus-ring rounded-md px-2.5 py-1.5 transition-colors hover:bg-[var(--color-paper-soft)] hover:text-[var(--color-ink)]">
             {t('audiences')}
           </Link>
-          <Link href="/#problema" className="focus-ring rounded transition-colors hover:text-[var(--accent)]">
+          <Link href="/#problema" className="focus-ring rounded-md px-2.5 py-1.5 transition-colors hover:bg-[var(--color-paper-soft)] hover:text-[var(--color-ink)]">
             {t('resources')}
           </Link>
-          <Link href="/#manifesto" className="focus-ring rounded transition-colors hover:text-[var(--accent)]">
+          <Link href="/#manifesto" className="focus-ring rounded-md px-2.5 py-1.5 transition-colors hover:bg-[var(--color-paper-soft)] hover:text-[var(--color-ink)]">
             {t('pricing')}
           </Link>
-          <Link href="/about" className="focus-ring rounded transition-colors hover:text-[var(--accent)]">
+          <Link href="/about" className="focus-ring rounded-md px-2.5 py-1.5 transition-colors hover:bg-[var(--color-paper-soft)] hover:text-[var(--color-ink)]">
             {t('about')}
           </Link>
         </nav>
 
-        {/* Right actions */}
-        <div className="flex items-center gap-2">
-          <div className="hidden items-center gap-2 md:flex">
-            <ThemeSwitcher />
-            <LocaleSwitcher />
-          </div>
-
-          {/* Ghost: Inicia sesión */}
+        {/* Desktop right actions */}
+        <div className="hidden items-center gap-2 lg:flex">
+          <ThemeSwitcher />
+          <LocaleSwitcher />
           <Link
             href="/#contact"
-            className="focus-ring hidden rounded-full border border-[var(--color-line)] px-4 py-2 text-sm font-medium text-[var(--color-ink)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:inline-flex"
-          >
-            {t('signin')}
-          </Link>
-
-          {/* Filled CTA: Empieza ahora */}
-          <Link
-            href="/#contact"
-            className="focus-ring rounded-full px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            className="focus-ring rounded-full px-4 py-1.5 text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
             style={{ background: 'linear-gradient(to right, var(--brand-from), var(--brand-to))' }}
           >
             {t('cta')}
           </Link>
         </div>
+
+        {/* Mobile nav (hamburger) */}
+        <MobileNav />
       </div>
     </header>
   );

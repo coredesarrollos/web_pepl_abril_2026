@@ -5,7 +5,6 @@ import { FeatureCards } from '@/components/sections/FeatureCards';
 import { Manifesto } from '@/components/sections/Manifesto';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { Audiences } from '@/components/sections/Audiences';
-import { ValueStats } from '@/components/sections/ValueStats';
 import { CtaBlock } from '@/components/sections/CtaBlock';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
@@ -28,7 +27,6 @@ export default async function HomePage({
         <Manifesto />
         <HowItWorks />
         <Audiences />
-        <ValueStats />
         <CtaBlock />
       </main>
       <SiteFooter />
