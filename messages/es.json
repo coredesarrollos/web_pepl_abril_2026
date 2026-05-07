@@ -134,6 +134,14 @@
     "card3Title": "Interrupción constante",
     "card3Body": "Los anuncios interrumpen la experiencia. El resultado: rechazo, ad-blockers y pérdida irreversible de confianza de marca."
   },
+  "privacy": {
+    "metaTitle": "Política de Privacidad — PEpL",
+    "metaDescription": "Conocé cómo PEpL recopila, usa y protege tus datos personales."
+  },
+  "terms": {
+    "metaTitle": "Términos y Condiciones — PEpL",
+    "metaDescription": "Leé los términos y condiciones de uso de la plataforma PEpL."
+  },
   "about": {
     "metaTitle": "Quiénes Somos — PEpL",
     "metaDescription": "Conocé al equipo fundador de PEpL, apasionados por la tecnología y la innovación.",

@@ -134,6 +134,14 @@
     "card3Title": "Constant interruption",
     "card3Body": "Ads interrupt the experience. The result: rejection, ad-blockers and irreversible loss of brand trust."
   },
+  "privacy": {
+    "metaTitle": "Privacy Policy — PEpL",
+    "metaDescription": "Learn how PEpL collects, uses and protects your personal data."
+  },
+  "terms": {
+    "metaTitle": "Terms and Conditions — PEpL",
+    "metaDescription": "Read the terms and conditions of use for the PEpL platform."
+  },
   "about": {
     "metaTitle": "About Us — PEpL",
     "metaDescription": "Meet the founding team of PEpL, passionate about technology and innovation.",
