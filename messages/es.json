@@ -14,7 +14,8 @@
     "pricing": "Solución",
     "signin": "Inicia sesión",
     "cta": "Solicitar demo",
-    "skipToContent": "Saltar al contenido"
+    "skipToContent": "Saltar al contenido",
+    "about": "Quiénes somos"
   },
   "hero": {
     "eyebrow": "Inteligencia aplicada al logro",
@@ -132,5 +133,13 @@
     "card3Icon": "🚫",
     "card3Title": "Interrupción constante",
     "card3Body": "Los anuncios interrumpen la experiencia. El resultado: rechazo, ad-blockers y pérdida irreversible de confianza de marca."
+  },
+  "about": {
+    "metaTitle": "Quiénes Somos — PEpL",
+    "metaDescription": "Conocé al equipo fundador de PEpL, apasionados por la tecnología y la innovación.",
+    "heading": "Quiénes Somos",
+    "subheading": "Por qué nosotros",
+    "description": "Somos el equipo fundador de PEpL, apasionados por la tecnología y la innovación para impulsar el bienestar y la productividad personal. Nos unimos para crear soluciones que generen un impacto positivo y duradero en la vida de nuestros usuarios.",
+    "linkedinLabel": "LinkedIn"
   }
 }

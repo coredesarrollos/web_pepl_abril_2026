@@ -37,6 +37,9 @@ export function SiteHeader() {
           <Link href="/#manifesto" className="focus-ring rounded transition-colors hover:text-[var(--accent)]">
             {t('pricing')}
           </Link>
+          <Link href="/about" className="focus-ring rounded transition-colors hover:text-[var(--accent)]">
+            {t('about')}
+          </Link>
         </nav>
 
         {/* Right actions */}

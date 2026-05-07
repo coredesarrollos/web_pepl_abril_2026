@@ -14,7 +14,8 @@
     "pricing": "Solution",
     "signin": "Sign in",
     "cta": "Request demo",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "about": "About us"
   },
   "hero": {
     "eyebrow": "Applied intelligence for achievement rewards",
@@ -132,5 +133,13 @@
     "card3Icon": "🚫",
     "card3Title": "Constant interruption",
     "card3Body": "Ads interrupt the experience. The result: rejection, ad-blockers and irreversible loss of brand trust."
+  },
+  "about": {
+    "metaTitle": "About Us — PEpL",
+    "metaDescription": "Meet the founding team of PEpL, passionate about technology and innovation.",
+    "heading": "About Us",
+    "subheading": "Why us",
+    "description": "We are the founding team of PEpL, passionate about technology and innovation to drive personal wellbeing and productivity. We came together to build solutions that create a lasting positive impact in our users' lives.",
+    "linkedinLabel": "LinkedIn"
   }
 }
