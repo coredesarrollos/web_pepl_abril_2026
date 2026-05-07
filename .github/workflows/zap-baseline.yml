@@ -1,0 +1,29 @@
+name: zap-baseline
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 5 * * 1' # Mondays 05:00 UTC
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  zap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: ZAP baseline scan
+        uses: zaproxy/action-baseline@v0.13.0
+        with:
+          target: ${{ vars.STAGING_URL || 'https://staging.pepl.app' }}
+          fail_action: false
+          allow_issue_writing: true
+          rules_file_name: '.zap/rules.tsv'
+          cmd_options: '-a -j -m 5'
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zap-report
+          path: report_html.html
+          retention-days: 14

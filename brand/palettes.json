@@ -1,0 +1,45 @@
+{
+  "anchor": "#F58634",
+  "themes": [
+    {
+      "id": "accion",
+      "name": { "es": "Tomar acción", "en": "Take action" },
+      "concept": { "es": "acción · impulso · decisión", "en": "action · impulse · decision" },
+      "from": "#E91E5A",
+      "to": "#F58634",
+      "accent": "#E91E5A"
+    },
+    {
+      "id": "energia",
+      "name": { "es": "Energía interior", "en": "Inner energy" },
+      "concept": { "es": "identidad · intensidad · transformación", "en": "identity · intensity · transformation" },
+      "from": "#FF1493",
+      "to": "#F58634",
+      "accent": "#FF1493"
+    },
+    {
+      "id": "autoconocimiento",
+      "name": { "es": "Autoconocimiento", "en": "Self-awareness" },
+      "concept": { "es": "conocimiento · estrategia · liderazgo", "en": "knowledge · strategy · leadership" },
+      "from": "#3F1E9B",
+      "to": "#F58634",
+      "accent": "#3F1E9B"
+    },
+    {
+      "id": "estructura",
+      "name": { "es": "Estructura", "en": "Structure" },
+      "concept": { "es": "tecnología · sistema · control", "en": "technology · system · control" },
+      "from": "#00B7E9",
+      "to": "#F58634",
+      "accent": "#00B7E9"
+    }
+  ],
+  "neutrals": {
+    "ink": "#0A0A0A",
+    "inkSoft": "#1F2937",
+    "paper": "#F2EFE8",
+    "paperSoft": "#FFFFFF",
+    "mute": "#6B7280",
+    "line": "#E5E7EB"
+  }
+}

@@ -1,0 +1,58 @@
+name: pre-prod-deploy
+# Triggered manually before promoting a build to production. Hard-gates the
+# release on a fresh, encrypted env-var snapshot so we always have a safe rollback.
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Vercel environment to back up'
+        type: choice
+        default: production
+        options: [production, preview]
+      confirm:
+        description: 'Type DEPLOY to proceed'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  backup-then-deploy:
+    runs-on: ubuntu-latest
+    if: ${{ inputs.confirm == 'DEPLOY' }}
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      AGE_RECIPIENT: ${{ secrets.AGE_RECIPIENT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 9 }
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Install Vercel CLI
+        run: pnpm add -g vercel@latest
+      - name: Install age
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y age
+      - name: Snapshot env (encrypted)
+        run: pnpm env:backup ${{ inputs.target }}
+      - name: Upload encrypted snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: env-backup-${{ inputs.target }}-${{ github.run_id }}
+          path: |
+            .backups/*.env.age
+            .backups/*.meta.json
+          retention-days: 90
+      - name: Deploy
+        run: |
+          vercel pull --yes --environment=${{ inputs.target }} --token=$VERCEL_TOKEN
+          vercel build ${{ inputs.target == 'production' && '--prod' || '' }} --token=$VERCEL_TOKEN
+          vercel deploy --prebuilt ${{ inputs.target == 'production' && '--prod' || '' }} --token=$VERCEL_TOKEN

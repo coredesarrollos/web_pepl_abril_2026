@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Env (NUNCA commitear excepto .env.example)
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.preview
+
+# Vercel
+.vercel
+
+# Backups (encriptados también, por las dudas)
+.backups/
+
+# Sanity
+sanity/.sanity/
+.sanity-runtime/
+
+# Tests
+coverage/
+playwright-report/
+test-results/
+.lighthouseci/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+
+# Brand source (PDFs binarios pesados quedan, PNGs extraídos sí van al repo para el equipo)
+# brand/source/  ← descomentar si se agregan PDFs originales en /brand/source
+
+# Misc
+.turbo
+.cache

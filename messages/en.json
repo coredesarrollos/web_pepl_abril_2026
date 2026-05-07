@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "title": "PEpL — We don’t shout, we walk with you",
+    "description": "Emotional advertising powered by real achievement. We connect effort with concrete rewards.",
+    "ogAlt": "PEpL — Emotional advertising by achievement"
+  },
+  "nav": {
+    "home": "Home",
+    "audiences": "Who it’s for",
+    "manifesto": "Solution",
+    "how": "How it works",
+    "contact": "Contact",
+    "resources": "The problem",
+    "pricing": "Solution",
+    "signin": "Sign in",
+    "cta": "Request demo",
+    "skipToContent": "Skip to content"
+  },
+  "hero": {
+    "eyebrow": "Applied intelligence for achievement rewards",
+    "title": "Connect your brand",
+    "title2": "to the moment of achievement.",
+    "subtitle": "A professional, traceable reward system. PEpL appears when your clients genuinely reach a milestone — not before.",
+    "emailPlaceholder": "Enter your email",
+    "ctaPrimary": "Request a demo",
+    "ctaSecondary": "How it works",
+    "badge1": "Simple technical integration",
+    "badge2": "Pay per validated achievement",
+    "badge3": "Emotional analytics",
+    "statLabel": "Conversion vs. advertising",
+    "statValue": "3.2×",
+    "statSublabel": "higher at the moment of achievement",
+    "photoAlt": "Team celebrating a milestone at a PEpL partner gym"
+  },
+  "manifesto": {
+    "title": "A brand shouldn’t interrupt.",
+    "title2": "It should walk alongside.",
+    "body": "PEpL is an embeddable system that integrates into personal-change platforms — gyms, habit apps, progress communities. Brands appear at the user's emotional peak, when a real achievement is validated. Not before. Not after."
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "title": "Effort measured. Achievement recognised. Reward delivered.",
+    "steps": {
+      "track": {
+        "title": "We measure the effort",
+        "body": "The app captures habits, attendance and goals in real time."
+      },
+      "validate": {
+        "title": "We validate the achievement",
+        "body": "When the moment arrives, we mark it in orange: your win, validated."
+      },
+      "reward": {
+        "title": "We unlock the reward",
+        "body": "Partner brands appear at the right moment, with concrete benefits."
+      }
+    }
+  },
+  "audiences": {
+    "eyebrow": "Who it’s for",
+    "title": "Four audiences, one shared moment."
+  },
+  "value": {
+    "title": "Results you can feel.",
+    "stats": {
+      "members": { "value": "+12k", "label": "active members" },
+      "partners": { "value": "+45", "label": "partner brands" },
+      "redemption": { "value": "78%", "label": "redemption rate" },
+      "retention": { "value": "+34%", "label": "gym retention" }
+    }
+  },
+  "partners": {
+    "title": "Brands already walking with us."
+  },
+  "cta": {
+    "title": "Join the next wave of achievement.",
+    "subtitle": "Request a demo. We get back in under 24 hours.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "message": "Tell us what you need",
+      "submit": "Request demo",
+      "submitting": "Sending…",
+      "success": "Got it! We’ll be in touch shortly.",
+      "errorGeneric": "Something went wrong. Try again.",
+      "errorRate": "Too many attempts. Wait a minute.",
+      "errorValidation": "Please review the highlighted fields."
+    }
+  },
+  "footer": {
+    "tagline": "We don’t shout, we walk with you.",
+    "rights": "All rights reserved.",
+    "social": "Social",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "themeSwitcher": {
+    "label": "Visual style",
+    "tooltip": "Switch brand gradient"
+  },
+  "themeLab": {
+    "title": "Visual lab",
+    "subtitle": "Try the official gradients and pick the one going to production.",
+    "preview": "Preview",
+    "markOfficial": "Mark as official",
+    "officialBadge": "Current official"
+  },
+  "features": {
+    "card1Title": "Embeddable",
+    "card1Subtitle": "into your platform",
+    "card1Body": "Simple technical integration. PEpL plugs into your app, CRM or attendance system — without replacing anything you already have.",
+    "card2Title": "Traceable",
+    "card2Subtitle": "per validated achievement",
+    "card2Body": "You only pay when a real, verified achievement occurs. Every activated reward is auditable, measurable and reportable.",
+    "card3Title": "Emotional",
+    "card3Subtitle": "at precisely the right moment",
+    "card3Body": "Your brand appears at the user's emotional peak. It doesn't interrupt — it celebrates. That's when conversion is highest.",
+    "testimonialHeading": "Companies already using PEpL",
+    "testimonialQuote": "Our partners record up to 3× higher conversion rates compared to any traditional channel.",
+    "testimonialAuthor": "— Head of Marketing, gym network"
+  },
+  "problema": {
+    "eyebrow": "The problem",
+    "title": "Traditional advertising no longer works.",
+    "card1Icon": "📢",
+    "card1Title": "Ad saturation",
+    "card1Body": "Traditional formats are ignored. Brands pay for impressions nobody sees or remembers. Average CTR has dropped below 0.1%.",
+    "card2Icon": "💔",
+    "card2Title": "Lack of authentic connection",
+    "card2Body": "Brands chase authenticity while users reject generic advertising that doesn't speak to their values.",
+    "card3Icon": "🚫",
+    "card3Title": "Constant interruption",
+    "card3Body": "Ads interrupt the experience. The result: rejection, ad-blockers and irreversible loss of brand trust."
+  }
+}

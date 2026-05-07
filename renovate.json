@@ -1,0 +1,42 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":semanticCommitTypeAll(chore)",
+    ":dependencyDashboard",
+    ":maintainLockFilesWeekly"
+  ],
+  "schedule": ["before 6am on monday"],
+  "timezone": "Europe/Madrid",
+  "labels": ["dependencies"],
+  "rangeStrategy": "bump",
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "schedule": ["at any time"]
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": ["next", "react", "react-dom"],
+      "groupName": "next + react"
+    },
+    {
+      "matchPackageNames": ["tailwindcss", "@tailwindcss/postcss", "postcss"],
+      "groupName": "tailwind"
+    },
+    {
+      "matchPackageNames": ["sanity", "next-sanity", "@sanity/vision", "@sanity/image-url"],
+      "groupName": "sanity"
+    },
+    {
+      "matchPackagePatterns": ["^@playwright/", "^playwright"],
+      "groupName": "playwright"
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    }
+  ]
+}

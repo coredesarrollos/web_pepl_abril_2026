@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "title": "PEpL — No gritamos, acompañamos",
+    "description": "Publicidad emocional por logro. Conectamos esfuerzo real con beneficios concretos.",
+    "ogAlt": "PEpL — Publicidad emocional por logro"
+  },
+  "nav": {
+    "home": "Inicio",
+    "audiences": "Para quién",
+    "manifesto": "Solución",
+    "how": "Cómo funciona",
+    "contact": "Contacto",
+    "resources": "El problema",
+    "pricing": "Solución",
+    "signin": "Inicia sesión",
+    "cta": "Solicitar demo",
+    "skipToContent": "Saltar al contenido"
+  },
+  "hero": {
+    "eyebrow": "Inteligencia aplicada al logro",
+    "title": "Conectá tu marca",
+    "title2": "con el momento del logro.",
+    "subtitle": "Sistema profesional y trazable de recompensas por logro. PEpL aparece cuando tus clientes realmente alcanzan algo — no antes.",
+    "emailPlaceholder": "Ingresá tu email",
+    "ctaPrimary": "Solicitar demo",
+    "ctaSecondary": "Cómo funciona",
+    "badge1": "Integración técnica simple",
+    "badge2": "Pago por logro validado",
+    "badge3": "Analytics emocionales",
+    "statLabel": "Conversión vs. publicidad",
+    "statValue": "3.2×",
+    "statSublabel": "mayor en el momento del logro",
+    "photoAlt": "Equipo celebrando un logro en un gimnasio partner de PEpL"
+  },
+  "manifesto": {
+    "title": "Una marca no debería interrumpir.",
+    "title2": "Debería acompañar.",
+    "body": "PEpL es un sistema embedible que se integra en plataformas de cambio personal — gimnasios, apps de hábitos, comunidades de progreso. Las marcas aparecen en el pico emocional del usuario, cuando un logro real es validado. No antes. No después."
+  },
+  "how": {
+    "eyebrow": "Cómo funciona",
+    "title": "Esfuerzo medido. Logro reconocido. Beneficio real.",
+    "steps": {
+      "track": {
+        "title": "Medimos el esfuerzo",
+        "body": "La app capta hábitos, asistencias y metas en tiempo real."
+      },
+      "validate": {
+        "title": "Validamos el logro",
+        "body": "Cuando llega el momento, lo marcamos en naranja: tu logro, validado."
+      },
+      "reward": {
+        "title": "Activamos el beneficio",
+        "body": "Las marcas aliadas aparecen en el momento justo, con beneficios concretos."
+      }
+    }
+  },
+  "audiences": {
+    "eyebrow": "Para quién",
+    "title": "Cuatro audiencias, un mismo momento."
+  },
+  "value": {
+    "title": "Resultados que se sienten.",
+    "stats": {
+      "members": { "value": "+12k", "label": "personas activas" },
+      "partners": { "value": "+45", "label": "marcas aliadas" },
+      "redemption": { "value": "78%", "label": "tasa de canje" },
+      "retention": { "value": "+34%", "label": "retención en gimnasios" }
+    }
+  },
+  "partners": {
+    "title": "Marcas que ya acompañan."
+  },
+  "cta": {
+    "title": "Sumate a la próxima ola de logros.",
+    "subtitle": "Pedí una demo. Te respondemos en menos de 24 horas.",
+    "form": {
+      "name": "Nombre",
+      "email": "Email",
+      "company": "Empresa",
+      "message": "Contanos qué necesitás",
+      "submit": "Pedir demo",
+      "submitting": "Enviando…",
+      "success": "¡Recibido! Te escribimos en breve.",
+      "errorGeneric": "Ocurrió un error. Probá de nuevo.",
+      "errorRate": "Demasiados intentos. Esperá un minuto.",
+      "errorValidation": "Revisá los campos marcados."
+    }
+  },
+  "footer": {
+    "tagline": "No gritamos, acompañamos.",
+    "rights": "Todos los derechos reservados.",
+    "social": "Redes",
+    "legal": "Legales",
+    "privacy": "Privacidad",
+    "terms": "Términos"
+  },
+  "themeSwitcher": {
+    "label": "Estilo visual",
+    "tooltip": "Cambiar gradiente de marca"
+  },
+  "themeLab": {
+    "title": "Laboratorio visual",
+    "subtitle": "Probá los gradientes oficiales y elegí cuál sale a producción.",
+    "preview": "Vista previa",
+    "markOfficial": "Marcar como oficial",
+    "officialBadge": "Oficial actual"
+  },
+  "features": {
+    "card1Title": "Embedible",
+    "card1Subtitle": "en tu plataforma",
+    "card1Body": "Integración técnica simple. PEpL se inserta en tu app, CRM o sistema de asistencia — sin fricción, sin reemplazar lo que ya tenés.",
+    "card2Title": "Trazable",
+    "card2Subtitle": "por logro validado",
+    "card2Body": "Solo pagás cuando ocurre un logro real y verificado. Cada recompensa activada es auditable, medible y reportable.",
+    "card3Title": "Emocional",
+    "card3Subtitle": "en el momento justo",
+    "card3Body": "Tu marca aparece en el pico emocional del usuario. No interrumpe — celebra. Ese es el momento de mayor conversión.",
+    "testimonialHeading": "Empresas que ya usan PEpL",
+    "testimonialQuote": "Nuestros socios registran hasta 3× más tasa de conversión que con cualquier canal tradicional.",
+    "testimonialAuthor": "— Director de Marketing, red de gimnasios"
+  },
+  "problema": {
+    "eyebrow": "El problema",
+    "title": "La publicidad tradicional ya no funciona.",
+    "card1Icon": "📢",
+    "card1Title": "Saturación publicitaria",
+    "card1Body": "Los formatos tradicionales son ignorados. Las marcas pagan por impresiones que nadie ve ni recuerda. El CTR promedio cayó por debajo del 0.1%.",
+    "card2Icon": "💔",
+    "card2Title": "Falta de conexión auténtica",
+    "card2Body": "Las marcas buscan autenticidad mientras los usuarios rechazan la publicidad genérica que no les habla desde sus valores.",
+    "card3Icon": "🚫",
+    "card3Title": "Interrupción constante",
+    "card3Body": "Los anuncios interrumpen la experiencia. El resultado: rechazo, ad-blockers y pérdida irreversible de confianza de marca."
+  }
+}
