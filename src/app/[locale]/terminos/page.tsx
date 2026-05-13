@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { SiteHeader } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 
@@ -128,7 +129,7 @@ function TerminosEs() {
       <h2>9. Privacidad y protección de datos</h2>
       <p>
         El tratamiento de los datos personales de los usuarios se rige por la{' '}
-        <a href="/privacidad">Política de Privacidad</a> de PEpL, que forma parte integrante de estos
+        <Link href="/privacidad">Política de Privacidad</Link> de PEpL, que forma parte integrante de estos
         Términos.
       </p>
 
@@ -250,7 +251,7 @@ function TermsEn() {
       <h2>9. Privacy and Data Protection</h2>
       <p>
         The processing of Users' personal data is governed by PEpL's{' '}
-        <a href="/privacidad">Privacy Policy</a>, which forms an integral part of these Terms.
+        <Link href="/privacidad">Privacy Policy</Link>, which forms an integral part of these Terms.
       </p>
 
       <h2>10. Modifications</h2>
