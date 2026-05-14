@@ -21,12 +21,20 @@ const BURST_COLORS = ['#00B7E9', '#F58634', '#E91E5A'];
 
 export function EntrySplash() {
   const [visible, setVisible] = useState(false);
+  const [phase, setPhase] = useState<'isotype' | 'wordmark'>('isotype');
   const [bursting, setBursting] = useState(false);
   const t = useTranslations('splash');
 
   useEffect(() => {
     if (!sessionStorage.getItem(STORAGE_KEY)) setVisible(true);
   }, []);
+
+  // After isotype has its solo moment, cross-fade to wordmark
+  useEffect(() => {
+    if (!visible) return;
+    const timer = setTimeout(() => setPhase('wordmark'), 1800);
+    return () => clearTimeout(timer);
+  }, [visible]);
 
   function enter() {
     setBursting(true);
@@ -92,55 +100,66 @@ export function EntrySplash() {
             <div
               aria-hidden
               className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
-              style={{ width: 340, height: 340, background: 'radial-gradient(circle, #5B1FE866 0%, transparent 70%)', filter: 'blur(32px)' }}
+              style={{ width: 400, height: 400, background: 'radial-gradient(circle, #5B1FE866 0%, transparent 70%)', filter: 'blur(32px)' }}
             />
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.45 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.15, duration: 1.1, ease: [0.34, 1.56, 0.64, 1] }}
-              style={{
-                filter:
-                  'drop-shadow(0 0 32px rgba(0,183,233,0.9)) drop-shadow(0 0 64px rgba(91,31,232,0.6))',
-              }}
+            {/* Logo stage — fixed container so layout never shifts during crossfade */}
+            <div
+              className="relative flex items-center justify-center"
+              style={{ width: 'min(340px, 88vw)', height: 170 }}
             >
-              {/* source: 150×219 — display at 90×auto for solo hero moment */}
-              <Image
-                src="/brand/logo-isotype-mask.png"
-                alt="PEpL"
-                width={150}
-                height={219}
-                quality={100}
-                priority
-                style={{ width: '90px', height: 'auto' }}
-              />
-            </motion.div>
+              <AnimatePresence>
+                {phase === 'isotype' && (
+                  <motion.div
+                    key="isotype"
+                    initial={{ opacity: 0, scale: 0.45 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.75, transition: { duration: 0.55, ease: 'easeIn' } }}
+                    transition={{ duration: 1.0, ease: [0.34, 1.56, 0.64, 1] }}
+                    className="absolute"
+                    style={{ filter: 'drop-shadow(0 0 32px rgba(0,183,233,0.9)) drop-shadow(0 0 64px rgba(91,31,232,0.6))' }}
+                  >
+                    {/* source: 150×219 — display at 100×auto for solo hero moment */}
+                    <Image
+                      src="/brand/logo-isotype-mask.png"
+                      alt="PEpL"
+                      width={150}
+                      height={219}
+                      quality={100}
+                      priority
+                      style={{ width: '100px', height: 'auto' }}
+                    />
+                  </motion.div>
+                )}
 
-            <motion.div
-              initial={{ opacity: 0, y: 22, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ delay: 1.7, duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6"
-              style={{
-                filter: 'drop-shadow(0 2px 18px rgba(0,183,233,0.4))',
-              }}
-            >
-              {/* source: 529×273 — display at 264×auto for perfect 2x retina rendering */}
-              <Image
-                src="/brand/logo-wordmark-mask.png"
-                alt=""
-                width={529}
-                height={273}
-                quality={100}
-                priority
-                style={{ width: '264px', height: 'auto' }}
-              />
-            </motion.div>
+                {phase === 'wordmark' && (
+                  <motion.div
+                    key="wordmark"
+                    initial={{ opacity: 0, scale: 0.88 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute"
+                    style={{ filter: 'drop-shadow(0 2px 28px rgba(0,183,233,0.55))' }}
+                  >
+                    {/* source: 529×273 — display at min(300px,82vw) */}
+                    <Image
+                      src="/brand/logo-wordmark-mask.png"
+                      alt="PEpL"
+                      width={529}
+                      height={273}
+                      quality={100}
+                      priority
+                      style={{ width: 'min(300px, 82vw)', height: 'auto' }}
+                    />
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
 
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2.4, duration: 0.7 }}
+              transition={{ delay: 2.9, duration: 0.7 }}
               className="mt-3 text-center text-[11px] font-semibold uppercase tracking-[0.28em] text-white/60"
             >
               {t('tagline')}
@@ -149,7 +168,7 @@ export function EntrySplash() {
             <motion.button
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2.85, duration: 0.7 }}
+              transition={{ delay: 3.3, duration: 0.7 }}
               whileHover={{ scale: 1.07 }}
               whileTap={{ scale: 0.95 }}
               onClick={enter}
