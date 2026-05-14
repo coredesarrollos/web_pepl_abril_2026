@@ -4,14 +4,10 @@ import { useEffect, useRef } from 'react';
 import { useTheme } from './ThemeProvider';
 import type { ThemeId } from '@/lib/themes';
 
-/** Themes that auto-cycle (the two right swatches: violet & celeste) */
-const CYCLE_THEMES: ThemeId[] = ['autoconocimiento', 'estructura'];
+/** Themes that auto-cycle — starts at celeste (estructura), then violet */
+const CYCLE_THEMES: ThemeId[] = ['estructura', 'autoconocimiento'];
 const INTERVAL_MS = 600_000;
 
-/**
- * Silently cycles between the violet and celeste brand themes every 6 s.
- * Renders nothing — drop it anywhere inside <ThemeProvider>.
- */
 export function ThemeAutoCycler() {
   const { themeId, setTheme } = useTheme();
   const themeIdRef = useRef<ThemeId>(themeId);
@@ -19,6 +15,11 @@ export function ThemeAutoCycler() {
   useEffect(() => {
     themeIdRef.current = themeId;
   }, [themeId]);
+
+  // Force celeste on first load, regardless of cookie
+  useEffect(() => {
+    setTheme('estructura');
+  }, [setTheme]);
 
   useEffect(() => {
     const id = setInterval(() => {
