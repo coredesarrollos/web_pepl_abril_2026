@@ -1,7 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { Logo } from '@/components/brand/Logo';
-import { ThemeSwitcher } from '@/components/theme/ThemeSwitcher';
 import { LocaleSwitcher } from '@/components/layout/LocaleSwitcher';
 import { MobileNav } from '@/components/layout/MobileNav';
 
@@ -45,7 +44,6 @@ export function SiteHeader() {
 
         {/* Desktop right actions */}
         <div className="hidden items-center gap-2 lg:flex">
-          <ThemeSwitcher />
           <LocaleSwitcher />
           <Link
             href="/#contact"
