@@ -1,4 +1,10 @@
 {
+  "splash": {
+    "ariaLabel": "Pantalla de bienvenida PEpL",
+    "tagline": "Tu mejor versión, en movimiento",
+    "enter": "Ingresar",
+    "hint": "Tocá para entrar"
+  },
   "meta": {
     "title": "PEpL — No gritamos, acompañamos",
     "description": "Publicidad emocional por logro. Conectamos esfuerzo real con beneficios concretos.",

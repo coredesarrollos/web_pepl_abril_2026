@@ -1,4 +1,10 @@
 {
+  "splash": {
+    "ariaLabel": "PEpL welcome screen",
+    "tagline": "Your best self, in motion",
+    "enter": "Enter",
+    "hint": "Tap to enter"
+  },
   "meta": {
     "title": "PEpL — We don’t shout, we walk with you",
     "description": "Emotional advertising powered by real achievement. We connect effort with concrete rewards.",

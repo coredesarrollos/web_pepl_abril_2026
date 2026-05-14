@@ -6,6 +6,7 @@ import { Inter, Nunito } from 'next/font/google';
 import { cookies } from 'next/headers';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { ThemeAutoCycler } from '@/components/theme/ThemeAutoCycler';
+import { EntrySplash } from '@/components/brand/EntrySplash';
 import { ClarityScript } from '@/components/analytics/ClarityScript';
 import { isThemeId, DEFAULT_THEME, type ThemeId } from '@/lib/themes';
 import { getOfficialTheme } from '@/lib/official-theme';
@@ -79,6 +80,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ThemeProvider initialTheme={initialTheme}>
             <ThemeAutoCycler />
+            <EntrySplash />
             {children}
           </ThemeProvider>
         </NextIntlClientProvider>
