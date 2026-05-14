@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { Inter, Nunito } from 'next/font/google';
 import { cookies } from 'next/headers';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
+import { ThemeAutoCycler } from '@/components/theme/ThemeAutoCycler';
 import { ClarityScript } from '@/components/analytics/ClarityScript';
 import { isThemeId, DEFAULT_THEME, type ThemeId } from '@/lib/themes';
 import { getOfficialTheme } from '@/lib/official-theme';
@@ -76,7 +77,10 @@ export default async function LocaleLayout({
     <html lang={locale} data-theme={initialTheme} className={`${inter.variable} ${nunito.variable}`} suppressHydrationWarning>
       <body>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <ThemeProvider initialTheme={initialTheme}>{children}</ThemeProvider>
+          <ThemeProvider initialTheme={initialTheme}>
+            <ThemeAutoCycler />
+            {children}
+          </ThemeProvider>
         </NextIntlClientProvider>
         <ClarityScript />
       </body>

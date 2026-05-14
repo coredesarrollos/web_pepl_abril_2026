@@ -29,21 +29,12 @@ export function SiteFooter() {
             </li>
           </ul>
         </nav>
-        <nav aria-label={t('social')} className="text-sm">
-          <h2 className="mb-3 font-semibold">{t('social')}</h2>
-          <ul className="space-y-2">
-            <li>
-              <a href="https://instagram.com/pepl.app" className="focus-ring rounded" rel="noopener noreferrer" target="_blank">
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/company/pepl" className="focus-ring rounded" rel="noopener noreferrer" target="_blank">
-                LinkedIn
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <div className="text-sm">
+          <h2 className="mb-3 font-semibold">{t('comingTitle')}</h2>
+          <p className="text-[color-mix(in_oklab,var(--color-paper)_70%,transparent)] leading-relaxed">
+            {t('comingSpeech')}
+          </p>
+        </div>
       </div>
       <div className="border-t border-[color-mix(in_oklab,var(--color-paper)_15%,transparent)]">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5 text-xs text-[color-mix(in_oklab,var(--color-paper)_60%,transparent)]">
