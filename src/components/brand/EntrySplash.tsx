@@ -7,19 +7,34 @@ import { useTranslations } from 'next-intl';
 
 const STORAGE_KEY = 'pepl_entry_seen';
 
+/** Nebula blobs — brand hues as large glowing spheres, mix-blend: screen */
+const BLOBS = [
+  { color: '#5B1FE8', x: 8,  y: 12, size: 720, dur: 20, ox: [0, 50, -30, 20, 0],  oy: [0, -40, 50, -20, 0]  },
+  { color: '#00B7E9', x: 74, y: 70, size: 600, dur: 24, ox: [0, -40, 25, -15, 0], oy: [0, 30, -45, 20, 0]   },
+  { color: '#F58634', x: 60, y: 6,  size: 460, dur: 17, ox: [0, 30, -20, 35, 0],  oy: [0, 40, -25, 30, 0]   },
+  { color: '#E91E5A', x: 15, y: 75, size: 520, dur: 21, ox: [0, -35, 40, -25, 0], oy: [0, -30, 20, -40, 0]  },
+  { color: '#9B1DFF', x: 84, y: 38, size: 380, dur: 15, ox: [0, 20, -45, 15, 0],  oy: [0, 35, -20, 45, 0]   },
+];
+
+/** Colors for the exit burst rings */
+const BURST_COLORS = ['#00B7E9', '#F58634', '#E91E5A'];
+
 export function EntrySplash() {
   const [visible, setVisible] = useState(false);
+  const [bursting, setBursting] = useState(false);
   const t = useTranslations('splash');
 
   useEffect(() => {
-    if (!sessionStorage.getItem(STORAGE_KEY)) {
-      setVisible(true);
-    }
+    if (!sessionStorage.getItem(STORAGE_KEY)) setVisible(true);
   }, []);
 
   function enter() {
-    sessionStorage.setItem(STORAGE_KEY, '1');
-    setVisible(false);
+    setBursting(true);
+    setTimeout(() => {
+      sessionStorage.setItem(STORAGE_KEY, '1');
+      setVisible(false);
+      setBursting(false);
+    }, 680);
   }
 
   return (
@@ -28,99 +43,102 @@ export function EntrySplash() {
         <motion.div
           key="entry-splash"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.06 }}
-          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden"
-          style={{
-            background:
-              'linear-gradient(135deg, var(--brand-from) 0%, var(--brand-to) 100%)',
-          }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.45 }}
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden bg-[#06040F]"
           aria-modal="true"
           role="dialog"
           aria-label={t('ariaLabel')}
         >
-          {/* ── Animated rings ─────────────────────────────────── */}
+          {/* ── Nebula blobs ───────────────────────────────────── */}
           <div className="pointer-events-none absolute inset-0" aria-hidden>
-            {([0.25, 0.5, 0.78] as const).map((s, i) => (
-              <motion.span
+            {BLOBS.map((b, i) => (
+              <motion.div
                 key={i}
-                className="absolute left-1/2 top-1/2 block rounded-full border border-white/10"
-                style={{ width: '90vmax', height: '90vmax' }}
-                initial={{ opacity: 0, scale: s, x: '-50%', y: '-50%' }}
-                animate={{ opacity: 1, scale: s + 0.08 }}
-                transition={{
-                  delay: i * 0.18,
-                  duration: 2,
-                  ease: [0.16, 1, 0.3, 1],
-                  repeat: Infinity,
-                  repeatType: 'reverse',
-                  repeatDelay: 1.5,
+                className="absolute rounded-full"
+                style={{
+                  width: b.size,
+                  height: b.size,
+                  left: `${b.x}%`,
+                  top: `${b.y}%`,
+                  translate: '-50% -50%',
+                  background: `radial-gradient(circle, ${b.color}CC 0%, ${b.color}44 45%, transparent 70%)`,
+                  filter: 'blur(72px)',
+                  mixBlendMode: 'screen',
                 }}
+                animate={{ x: b.ox, y: b.oy, scale: [1, 1.18, 0.88, 1.12, 1] }}
+                transition={{ duration: b.dur, repeat: Infinity, ease: 'easeInOut' }}
               />
             ))}
           </div>
 
-          {/* ── Isotype ────────────────────────────────────────── */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.6, y: 24 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ delay: 0.1, duration: 0.9, ease: [0.34, 1.56, 0.64, 1] }}
-            className="relative drop-shadow-2xl"
-          >
-            <Image
-              src="/brand/logo-isotype-mask.png"
-              alt="PEpL"
-              width={140}
-              height={140}
-              priority
+          {/* ── Exit burst rings ───────────────────────────────── */}
+          <AnimatePresence>
+            {bursting && BURST_COLORS.map((c, i) => (
+              <motion.span
+                key={i}
+                className="pointer-events-none absolute left-1/2 top-1/2 block rounded-full"
+                style={{ background: `radial-gradient(circle, ${c}99, transparent 70%)` }}
+                initial={{ width: 60, height: 60, x: '-50%', y: '-50%', opacity: 0.95 }}
+                animate={{ width: '280vmax', height: '280vmax', opacity: 0 }}
+                transition={{ delay: i * 0.07, duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
+              />
+            ))}
+          </AnimatePresence>
+
+          {/* ── Center content ─────────────────────────────────── */}
+          <div className="relative z-10 flex flex-col items-center">
+            {/* Glow halo */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+              style={{ width: 340, height: 340, background: 'radial-gradient(circle, #5B1FE866 0%, transparent 70%)', filter: 'blur(32px)' }}
             />
-          </motion.div>
 
-          {/* ── Wordmark ───────────────────────────────────────── */}
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.38, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-5 drop-shadow-lg"
-          >
-            <Image
-              src="/brand/logo-wordmark-mask.png"
-              alt=""
-              width={210}
-              height={50}
-              priority
-            />
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.45 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1, duration: 1.0, ease: [0.34, 1.56, 0.64, 1] }}
+            >
+              <Image src="/brand/logo-isotype-mask.png" alt="PEpL" width={148} height={148} priority />
+            </motion.div>
 
-          {/* ── Tagline ────────────────────────────────────────── */}
-          <motion.p
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.58, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-4 text-center text-sm font-medium uppercase tracking-[0.2em] text-white/75"
-          >
-            {t('tagline')}
-          </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.42, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-5"
+            >
+              <Image src="/brand/logo-wordmark-mask.png" alt="" width={220} height={52} priority />
+            </motion.div>
 
-          {/* ── Enter button ───────────────────────────────────── */}
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.18)' }}
-            whileTap={{ scale: 0.97 }}
-            onClick={enter}
-            className="mt-12 rounded-full border-2 border-white/55 px-12 py-3.5 text-base font-bold tracking-widest text-white uppercase transition-colors hover:border-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
-          >
-            {t('enter')}
-          </motion.button>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.65, duration: 0.7 }}
+              className="mt-3 text-center text-[11px] font-semibold uppercase tracking-[0.28em] text-white/60"
+            >
+              {t('tagline')}
+            </motion.p>
 
-          {/* ── Pulse hint ─────────────────────────────────────── */}
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.95, duration: 0.7 }}
+              whileHover={{ scale: 1.07 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={enter}
+              className="mt-11 rounded-full border border-white/30 bg-white/5 px-14 py-3.5 text-sm font-bold uppercase tracking-[0.22em] text-white backdrop-blur-sm transition-colors hover:border-white/75 hover:bg-white/12 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"
+            >
+              {t('enter')}
+            </motion.button>
+          </div>
+
           <motion.p
             initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 0.5, 0] }}
-            transition={{ delay: 1.8, duration: 2.4, repeat: Infinity }}
-            className="absolute bottom-10 text-xs text-white/45 tracking-widest uppercase"
+            animate={{ opacity: [0, 0.4, 0] }}
+            transition={{ delay: 2.2, duration: 2.8, repeat: Infinity }}
+            className="absolute bottom-10 text-[10px] uppercase tracking-[0.3em] text-white/35"
           >
             {t('hint')}
           </motion.p>
