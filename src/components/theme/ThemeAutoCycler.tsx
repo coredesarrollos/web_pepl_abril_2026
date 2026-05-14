@@ -6,7 +6,7 @@ import type { ThemeId } from '@/lib/themes';
 
 /** Themes that auto-cycle (the two right swatches: violet & celeste) */
 const CYCLE_THEMES: ThemeId[] = ['autoconocimiento', 'estructura'];
-const INTERVAL_MS = 6000;
+const INTERVAL_MS = 600_000;
 
 /**
  * Silently cycles between the violet and celeste brand themes every 6 s.
