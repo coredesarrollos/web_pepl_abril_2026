@@ -98,13 +98,13 @@ export function EntrySplash() {
             <motion.div
               initial={{ opacity: 0, scale: 0.45 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 1.0, ease: [0.34, 1.56, 0.64, 1] }}
+              transition={{ delay: 0.15, duration: 1.1, ease: [0.34, 1.56, 0.64, 1] }}
               style={{
                 filter:
-                  'drop-shadow(0 0 28px rgba(0,183,233,0.85)) drop-shadow(0 0 56px rgba(91,31,232,0.55))',
+                  'drop-shadow(0 0 32px rgba(0,183,233,0.9)) drop-shadow(0 0 64px rgba(91,31,232,0.6))',
               }}
             >
-              {/* source: 150×219 — display at 75×110 for perfect 2x retina rendering */}
+              {/* source: 150×219 — display at 90×auto for solo hero moment */}
               <Image
                 src="/brand/logo-isotype-mask.png"
                 alt="PEpL"
@@ -112,15 +112,15 @@ export function EntrySplash() {
                 height={219}
                 quality={100}
                 priority
-                style={{ width: '75px', height: 'auto' }}
+                style={{ width: '90px', height: 'auto' }}
               />
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.42, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-4"
+              initial={{ opacity: 0, y: 22, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 1.7, duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-6"
               style={{
                 filter: 'drop-shadow(0 2px 18px rgba(0,183,233,0.4))',
               }}
@@ -140,7 +140,7 @@ export function EntrySplash() {
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65, duration: 0.7 }}
+              transition={{ delay: 2.4, duration: 0.7 }}
               className="mt-3 text-center text-[11px] font-semibold uppercase tracking-[0.28em] text-white/60"
             >
               {t('tagline')}
@@ -149,7 +149,7 @@ export function EntrySplash() {
             <motion.button
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.95, duration: 0.7 }}
+              transition={{ delay: 2.85, duration: 0.7 }}
               whileHover={{ scale: 1.07 }}
               whileTap={{ scale: 0.95 }}
               onClick={enter}
@@ -162,7 +162,7 @@ export function EntrySplash() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0.4, 0] }}
-            transition={{ delay: 2.2, duration: 2.8, repeat: Infinity }}
+            transition={{ delay: 4.0, duration: 2.8, repeat: Infinity }}
             className="absolute bottom-10 text-[10px] uppercase tracking-[0.3em] text-white/35"
           >
             {t('hint')}
