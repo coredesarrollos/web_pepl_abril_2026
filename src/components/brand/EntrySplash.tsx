@@ -99,17 +99,42 @@ export function EntrySplash() {
               initial={{ opacity: 0, scale: 0.45 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 1.0, ease: [0.34, 1.56, 0.64, 1] }}
+              style={{
+                filter:
+                  'drop-shadow(0 0 28px rgba(0,183,233,0.85)) drop-shadow(0 0 56px rgba(91,31,232,0.55))',
+              }}
             >
-              <Image src="/brand/logo-isotype-mask.png" alt="PEpL" width={148} height={148} priority />
+              {/* source: 150×219 — display at 75×110 for perfect 2x retina rendering */}
+              <Image
+                src="/brand/logo-isotype-mask.png"
+                alt="PEpL"
+                width={150}
+                height={219}
+                quality={100}
+                priority
+                style={{ width: '75px', height: 'auto' }}
+              />
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.42, duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-5"
+              className="mt-4"
+              style={{
+                filter: 'drop-shadow(0 2px 18px rgba(0,183,233,0.4))',
+              }}
             >
-              <Image src="/brand/logo-wordmark-mask.png" alt="" width={220} height={52} priority />
+              {/* source: 529×273 — display at 264×auto for perfect 2x retina rendering */}
+              <Image
+                src="/brand/logo-wordmark-mask.png"
+                alt=""
+                width={529}
+                height={273}
+                quality={100}
+                priority
+                style={{ width: '264px', height: 'auto' }}
+              />
             </motion.div>
 
             <motion.p
